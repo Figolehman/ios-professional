@@ -68,7 +68,7 @@ extension ShakyBellView {
         
         NSLayoutConstraint.activate([
             buttonView.topAnchor.constraint(equalTo: imageView.topAnchor),
-            buttonView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -9),
+            buttonView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -9 ),
             buttonView.widthAnchor.constraint(equalToConstant: 16),
             buttonView.heightAnchor.constraint(equalToConstant: 16)
         ])
