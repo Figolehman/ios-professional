@@ -35,7 +35,7 @@ class AccountTests: XCTestCase {
            },
           ]
         """
-
+ 
         // Game on here 🕹
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
