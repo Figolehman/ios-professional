@@ -18,6 +18,9 @@ extension UIViewController {
         navBarAppearance.backgroundColor = appColor
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = navBarAppearance
+        
         
 //
 //        statusBarView.backgroundColor = appColor
