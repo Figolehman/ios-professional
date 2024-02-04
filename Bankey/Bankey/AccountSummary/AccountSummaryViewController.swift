@@ -134,7 +134,7 @@ extension AccountSummaryViewController {
                 self.profile = profile
                 self.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayError(error)
             }
             group.leave()
         }
@@ -146,7 +146,7 @@ extension AccountSummaryViewController {
                 self.accounts = accounts
                 self.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayError(error)
             }
             group.leave()
         }
@@ -174,12 +174,32 @@ extension AccountSummaryViewController {
             AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
         }
     }
+    
+    private func displayError(_ error: NetworkError) {
+        let title: String
+        let message: String
+        switch error {
+        case .serverError:
+            title = "Server Error"
+            message = "Ensure you are connected to the internet. Please try again."
+        case .decodingError:
+            title = "Decoding Error"
+            message = "We could not process your request. Please try again."
+        }
+        self.showErrorAlert(title: title, message: message)
+    }
+    
+    private func showErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        present(alert, animated: true)
+    }
 }
 
 extension AccountSummaryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+    
 }
 
 // MARK: - Actions
