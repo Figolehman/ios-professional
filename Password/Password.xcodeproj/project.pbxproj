@@ -11,6 +11,7 @@
 		1B32ED072B74DEA00038DA9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B32ED062B74DEA00038DA9C /* ViewController.swift */; };
 		1B32ED0C2B74DEA00038DA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B32ED0B2B74DEA00038DA9C /* Assets.xcassets */; };
 		1B32ED0F2B74DEA10038DA9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B32ED0D2B74DEA10038DA9C /* LaunchScreen.storyboard */; };
+		1B9B321A2B79CE3200E7D5EE /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B32192B79CE3200E7D5EE /* PasswordTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		1B32ED0B2B74DEA00038DA9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B32ED0E2B74DEA10038DA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B32ED102B74DEA10038DA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B9B32192B79CE3200E7D5EE /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				1B32ED162B74DF180038DA9C /* Files */,
 				1B32ED022B74DEA00038DA9C /* AppDelegate.swift */,
 				1B32ED062B74DEA00038DA9C /* ViewController.swift */,
+				1B9B32192B79CE3200E7D5EE /* PasswordTextField.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			files = (
 				1B32ED072B74DEA00038DA9C /* ViewController.swift in Sources */,
 				1B32ED032B74DEA00038DA9C /* AppDelegate.swift in Sources */,
+				1B9B321A2B79CE3200E7D5EE /* PasswordTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +214,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -267,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
