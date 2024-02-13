@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     
     let passwordStatusView = PasswordStatusView()
     
+    let confirmPasswordTextField = PasswordTextField(placeholderText: "Re-enter new password")
+    
+    let resetButton = UIButton(type: .system)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -29,11 +33,24 @@ extension ViewController {
         stackView.spacing = 20
         
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        passwordStatusView.translatesAutoresizingMaskIntoConstraints = false
+        passwordStatusView.layer.cornerRadius = 5
+        passwordStatusView.clipsToBounds = true
+        
+        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.configuration = .filled()
+        resetButton.setTitle("Reset password", for: [])
+//        resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
     }
     
     func layout() {
         stackView.addArrangedSubview(newPasswordTextField)
         stackView.addArrangedSubview(passwordStatusView)
+        stackView.addArrangedSubview(confirmPasswordTextField)
+        stackView.addArrangedSubview(resetButton)
         
         view.addSubview(stackView)
         

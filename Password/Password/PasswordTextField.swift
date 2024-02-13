@@ -32,7 +32,7 @@ class PasswordTextField: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 50)
+        return CGSize(width: 200, height: 60)
     }
     
 }
@@ -105,7 +105,8 @@ extension PasswordTextField {
         NSLayoutConstraint.activate([
             errorLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 4),
             errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         // CHCR

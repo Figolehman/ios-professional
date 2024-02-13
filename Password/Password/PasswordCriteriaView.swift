@@ -86,6 +86,7 @@ extension PasswordCriteriaView {
         ])
         
         NSLayoutConstraint.activate([
+//            status.heightAnchor.constraint(equalTo: criteria.heightAnchor), 
             status.heightAnchor.constraint(equalTo: status.widthAnchor)
         ])
         
