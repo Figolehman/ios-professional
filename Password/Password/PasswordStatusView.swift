@@ -10,7 +10,7 @@ import UIKit
 class PasswordStatusView: UIView {
     
     let lengthCriteriaView = PasswordCriteriaView(withCriteria: "8-32 characters (no spaces)")
-    let uppercaseCriteriaView = PasswordCriteriaView(withCriteria: "uppercase letter (A-Z)")
+    let upperCaseCriteriaView = PasswordCriteriaView(withCriteria: "uppercase letter (A-Z)")
     let lowerCaseCriteriaView = PasswordCriteriaView(withCriteria: "lowercase (a-z)")
     let digitCriteriaView = PasswordCriteriaView(withCriteria: "digit (0-9)")
     let specialCharacterCriteriaView = PasswordCriteriaView(withCriteria: "special character (e.g. !@#$%^)")
@@ -19,7 +19,7 @@ class PasswordStatusView: UIView {
     
     let stackView = UIStackView()
     
-    private var shouldResetCriteria: Bool = true
+    var shouldResetCriteria: Bool = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,7 +45,7 @@ extension PasswordStatusView {
         backgroundColor = .tertiarySystemFill
         
         lengthCriteriaView.translatesAutoresizingMaskIntoConstraints = false
-        uppercaseCriteriaView.translatesAutoresizingMaskIntoConstraints = false
+        upperCaseCriteriaView.translatesAutoresizingMaskIntoConstraints = false
         lowerCaseCriteriaView.translatesAutoresizingMaskIntoConstraints = false
         digitCriteriaView.translatesAutoresizingMaskIntoConstraints = false
         specialCharacterCriteriaView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +67,7 @@ extension PasswordStatusView {
 //        stackView.addArrangedSubview(PasswordCriteriaView(withCriteria: "Hello World!"))
         stackView.addArrangedSubview(lengthCriteriaView)
         stackView.addArrangedSubview(criteriaLabel)
-        stackView.addArrangedSubview(uppercaseCriteriaView)
+        stackView.addArrangedSubview(upperCaseCriteriaView)
         stackView.addArrangedSubview(lowerCaseCriteriaView)
         stackView.addArrangedSubview(digitCriteriaView)
         stackView.addArrangedSubview(specialCharacterCriteriaView)
@@ -116,8 +116,8 @@ extension PasswordStatusView {
             : lengthCriteriaView.reset()
             
             uppercaseMet
-            ? uppercaseCriteriaView.isCriteriaMet = true
-            : uppercaseCriteriaView.reset()
+            ? upperCaseCriteriaView.isCriteriaMet = true
+            : upperCaseCriteriaView.reset()
             
             lowercaseMet
             ? lowerCaseCriteriaView.isCriteriaMet = true
@@ -130,7 +130,37 @@ extension PasswordStatusView {
             specialCharacterMet
             ? specialCharacterCriteriaView.isCriteriaMet = true
             : specialCharacterCriteriaView.reset()
+        } else {
+            lengthCriteriaView.isCriteriaMet = lengthAndNoSpaceMet
+            upperCaseCriteriaView.isCriteriaMet = uppercaseMet
+            lowerCaseCriteriaView.isCriteriaMet = lowercaseMet
+            digitCriteriaView.isCriteriaMet = digitMet
+            specialCharacterCriteriaView.isCriteriaMet = specialCharacterMet
         }
         
+    }
+    
+    func validate(_ text: String) -> Bool{
+        let uppercaseMet = PasswordCriteria.uppercaseMet(text)
+        let lowercaseMet = PasswordCriteria.lowercaseMet(text)
+        let digitMet = PasswordCriteria.digitMet(text)
+        let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
+        
+        let checkable = [uppercaseMet, lowercaseMet, digitMet, specialCharacterMet]
+        let metCriteria = checkable.filter { $0 }.count
+        let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceMet(text)
+        
+        if lengthAndNoSpaceMet && metCriteria >= 3 {
+            return true
+        }
+        return false
+    }
+    
+    func reset() {
+        lengthCriteriaView.reset()
+        digitCriteriaView.reset()
+        upperCaseCriteriaView.reset()
+        lowerCaseCriteriaView.reset()
+        specialCharacterCriteriaView.reset()
     }
 }
