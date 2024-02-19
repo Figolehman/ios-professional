@@ -36,7 +36,6 @@ class PasswordTextField: UIView {
     
     init(placeholderText: String) {
         self.placeHolderText = placeholderText
-        
         super.init(frame: .zero)
 
         style()
