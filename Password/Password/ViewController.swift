@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     let resetButton = UIButton(type: .system)
     
+    var alert: UIAlertController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -90,7 +92,7 @@ extension ViewController {
             }
             
             guard text == self.newPasswordTextField.text else {
-                return (false, "Passwords do not match")
+                return (false, "Passwords do not match.")
             }
             
             return (true, "")
@@ -196,11 +198,27 @@ extension ViewController {
     }
     
     private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        guard let alert = alert else { return }
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         
         alert.title = title
         alert.message = message
         present(alert, animated: true)
+    }
+}
+
+// MARK: - Tests
+extension ViewController {
+    var passwordText: String? {
+        get {
+            newPasswordTextField.text
+        }
+        set {
+            newPasswordTextField.text = newValue
+            confirmPasswordTextField.text = newValue
+        }
     }
 }
